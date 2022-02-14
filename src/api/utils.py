@@ -35,4 +35,5 @@ def generate_sitemap(app):
         <div style="text-align: center;">
         <h1>Starwars Blog API</h1>
         <p>API HOST: <script>document.write('<input style="padding: 5px; width: 600px" type="text" value="'+window.location.href+'" />');</script></p>
+        <p style="text-align: left;"><strong>GET</strong> methods routes:</p>
         <ul style="text-align: left;">"""+links_html+"</ul></div>"

@@ -2,7 +2,7 @@
 
 ![screenshot](https://raw.githubusercontent.com/m4n50n/starwars_blog_api_with_python_flask/main/screenshot_preview.png)
 
-✏ \*Creating an REST API with the **_Python Flask framework_** using Python and Pipenv to manage a blog about Starwars\*.
+✏ *Creating an REST API with the **_Python Flask framework_** using Python and Pipenv to manage a blog about Starwars*.
 
 ## Instructions 📄
 

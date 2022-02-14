@@ -20,6 +20,12 @@ class User(db.Model):
             "is_active": self.is_active,          
             "created_at": self.created_at
         }
+    
+    def get_all_users(self):
+        users = User.query.all()        
+        user_list = list(map(lambda user: user.serialize(), users)) 
+        
+        return user_list
 
 class Planet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -37,6 +43,12 @@ class Planet(db.Model):
             "temperature": self.temperature,
             "image_url": self.image_url            
         }
+
+    def get_all_planets(self):
+        planets = Planet.query.all()        
+        planets_list = list(map(lambda planet: planet.serialize(), planets)) 
+        
+        return planets_list
 
 class Character(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -59,6 +71,12 @@ class Character(db.Model):
             "image_url": self.image_url,
             "planet_id": self.planet_id
         }
+    
+    def get_all_characters(self):
+        characters = Character.query.all()        
+        characters_list = list(map(lambda character: character.serialize(), characters)) 
+        
+        return characters_list
 
 class Favourite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -80,3 +98,9 @@ class Favourite(db.Model):
             "character_id": self.character_id,
             "planet_id": self.planet_id
         }
+    
+    def get_all_favourites(self, user_id):
+        favourites = Favourite.query.all()        
+        favourites_list = list(map(lambda favourite: favourite.serialize(), favourites)) 
+        
+        return favourites_list
