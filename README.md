@@ -8,6 +8,12 @@
 
 The API can be tested with [Postman](https://www.postman.com) by using the required _methods_ and the _Gitpod_ workspace URL.
 
+* Install the project dependencies by running `$ pipenv install`.
+
+* Get inside the virtual environment by running `$ pipenv shell`
+
+* Start the server by running `$ pipenv run start`
+
 ## Sources 📌
 
 <https://learn.breatheco.de/course/full-stack.v4/24/p/exercise-starwars-blog-api>

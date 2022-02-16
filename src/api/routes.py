@@ -9,7 +9,7 @@ api = Blueprint("api", __name__)
 
 #region Users
 # Add user
-@api.route("/user/add", methods=["POST"]) # "/api/user/add"
+@api.route("/user", methods=["POST"])
 def add_user():
     body = request.get_json()
     new_user = User(email=body["email"], password=body["password"])
@@ -19,13 +19,13 @@ def add_user():
     return jsonify(f"A new user is added: {new_user.serialize()}"), 200
 
 # Get all users
-@api.route("/user/get/", methods=["GET"])
+@api.route("/user", methods=["GET"])
 def get_all_users():
     u = User() # Create new class instance
     return jsonify(u.get_all_users()), 200
 
 # Get user
-@api.route("/user/get/<int:user_id>", methods=["GET"])
+@api.route("/user/<int:user_id>", methods=["GET"])
 def get_user(user_id):
     user = User.query.get(user_id)
 
@@ -39,13 +39,13 @@ def get_user(user_id):
 
 #region Planets
 # Get all planets
-@api.route("/planet/get/", methods=["GET"])
+@api.route("/planet", methods=["GET"])
 def get_all_planets():
     p = Planet()
     return jsonify(p.get_all_planets()), 200
 
 # Get planet
-@api.route("/planet/get/<int:planet_id>", methods=["GET"])
+@api.route("/planet/<int:planet_id>", methods=["GET"])
 def get_planet(planet_id):
     planet = Planet.query.get(planet_id)
 
@@ -59,13 +59,13 @@ def get_planet(planet_id):
 
 #region Characters
 # Get all character
-@api.route("/character/get/", methods=["GET"])
+@api.route("/character", methods=["GET"])
 def get_all_characters():
     c = Character()
     return jsonify(c.get_all_characters()), 200
 
 # Get character
-@api.route("/character/get/<int:character_id>", methods=["GET"])
+@api.route("/character/<int:character_id>", methods=["GET"])
 def get_character(character_id):
     character = Character.query.get(character_id)
 
@@ -79,7 +79,7 @@ def get_character(character_id):
 
 #region Favourites
 # Add favourite
-@api.route("/user/favourite/add/", methods=["POST"])
+@api.route("/favourite", methods=["POST"])
 def add_favourite():
     body = request.get_json()
 
@@ -94,13 +94,13 @@ def add_favourite():
     return jsonify(f"A new favourite is added: {new_favourite.serialize()}"), 200
 
 # Get all favourites
-@api.route("/user/favourite/get/<int:user_id>", methods=["GET"])
+@api.route("/favourite/<int:user_id>", methods=["GET"])
 def get_all_favourites(user_id):
     c = Favourite()
     return jsonify(c.get_all_favourites(user_id)), 200
 
 # Delete favourite
-@api.route("/user/favourite/delete/<int:favourite_id>", methods=["DELETE"])
+@api.route("/favourite/<int:favourite_id>", methods=["DELETE"])
 def delete_favourite(favourite_id):
     favourite = Favourite.query.get(favourite_id)
 
